@@ -11,6 +11,7 @@ namespace stellar
 
 enum SCEnvMetaKind
 {
+    // Deprecated
     SC_ENV_META_KIND_INTERFACE_VERSION = 0,
     SC_ENV_META_KIND_PROTOCOL_VERSION = 1,
     SC_ENV_META_KIND_PRE_RELEASE_VERSION = 2
