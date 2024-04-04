@@ -11,9 +11,13 @@ namespace stellar
 
 enum SCEnvMetaKind
 {
-    // Deprecated
+    // Env interface version (protocol version << 32 | prerelease version).
+    // Deprecated.
     SC_ENV_META_KIND_INTERFACE_VERSION = 0,
+    // Env protocol version that the contract is built against.
     SC_ENV_META_KIND_PROTOCOL_VERSION = 1,
+    // Env pre-release version that the contract is built against. Present for
+    // contracts built against pre-release builds of the env only.
     SC_ENV_META_KIND_PRE_RELEASE_VERSION = 2
 };
 
