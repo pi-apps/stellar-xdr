@@ -26,7 +26,7 @@ union SCEnvMetaEntry switch (SCEnvMetaKind kind)
 case SC_ENV_META_KIND_INTERFACE_VERSION:
     uint64 interfaceVersion;
 case SC_ENV_META_KIND_PROTOCOL_VERSION:
-    uint32 interfaceVersion;
+    uint32 protocolVersion;
 case SC_ENV_META_KIND_PRE_RELEASE_VERSION:
     uint32 interfaceVersion;
 };
