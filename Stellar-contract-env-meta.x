@@ -14,8 +14,8 @@ enum SCEnvMetaKind
     // Env interface version (protocol version << 32 | prerelease version).
     // Deprecated.
     SC_ENV_META_KIND_INTERFACE_VERSION = 0,
-    // Env protocol version that the contract is built against.
-    SC_ENV_META_KIND_PROTOCOL_VERSION = 1,
+    // Env minimum protocol version that the contract will run on.
+    SC_ENV_META_KIND_MINIMUM_PROTOCOL_VERSION = 1,
     // Env pre-release version that the contract is built against. Present for
     // contracts built against pre-release builds of the env only.
     SC_ENV_META_KIND_PRE_RELEASE_VERSION = 2
@@ -25,8 +25,8 @@ union SCEnvMetaEntry switch (SCEnvMetaKind kind)
 {
 case SC_ENV_META_KIND_INTERFACE_VERSION:
     uint64 interfaceVersion;
-case SC_ENV_META_KIND_PROTOCOL_VERSION:
-    uint32 protocolVersion;
+case SC_ENV_META_KIND_MINIMUM_PROTOCOL_VERSION:
+    uint32 minProtocolVersion;
 case SC_ENV_META_KIND_PRE_RELEASE_VERSION:
     uint32 preReleaseVersion;
 };
