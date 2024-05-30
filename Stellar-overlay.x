@@ -260,8 +260,8 @@ struct TimeSlicedNodeData
     uint32 totalOutboundPeerCount;
 
     // SCP stats
-    uint32 p75SCPFirstToSelfLatencyNs;
-    uint32 p75SCPSelfToOtherLatencyNs;
+    uint32 p75SCPFirstToSelfLatencyMs;
+    uint32 p75SCPSelfToOtherLatencyMs;
 
     // How many times the node lost sync in the time slice
     uint32 lostSyncCount;
