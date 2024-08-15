@@ -833,6 +833,29 @@ struct ArchivalProofNode
 
 typedef ArchivalProofNode ProofLevel<>;
 
+struct NonexistenceProofBody
+{
+    ColdArchiveBucketEntry entriesToProve<>;
+
+    // Vector of vectors, where proofLevels[level]
+    // contains all HashNodes that correspond with that level
+    ProofLevel proofLevels<>;
+};
+
+struct ExistenceProofBody
+{
+    LedgerKey keysToProve<>;
+
+    // Bounds for each key being proved, where bound[n]
+    // corresponds to keysToProve[n]
+    ColdArchiveBucketEntry lowBoundEntries<>;
+    ColdArchiveBucketEntry highBoundEntries<>;
+
+    // Vector of vectors, where proofLevels[level]
+    // contains all HashNodes that correspond with that level
+    ProofLevel proofLevels<>;
+};
+
 struct ArchivalProof
 {
     uint32 epoch; // AST Subtree for this proof
@@ -840,29 +863,10 @@ struct ArchivalProof
     union switch (ArchivalProofType t)
     {
     case EXISTENCE:
-        struct
-        {
-            ColdArchiveBucketEntry entriesToProve<>;
-
-            // Vector of vectors, where proofLevels[level]
-            // contains all HashNodes that correspond with that level
-            ProofLevel proofLevels<>;
-        } existenceProof;
+        NonexistenceProofBody nonexistenceProof;
     case NONEXISTENCE:
-        struct
-        {
-            LedgerKey keysToProve<>;
-
-            // Bounds for each key being proved, where bound[n]
-            // corresponds to keysToProve[n]
-            ColdArchiveBucketEntry lowBoundEntries<>;
-            ColdArchiveBucketEntry highBoundEntries<>;
-
-            // Vector of vectors, where proofLevels[level]
-            // contains all HashNodes that correspond with that level
-            ProofLevel proofLevels<>;
-        } nonexistenceProof;
-    } type;
+        ExistenceProofBody existenceProof;
+    } body;
 };
 
 // Resource limits for a Soroban transaction.
