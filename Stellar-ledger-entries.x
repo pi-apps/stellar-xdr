@@ -678,7 +678,6 @@ enum EnvelopeType
     ENVELOPE_TYPE_CONTRACT_ID = 8,
     ENVELOPE_TYPE_SOROBAN_AUTHORIZATION = 9
 };
-}
 
 enum BucketListType
 {
@@ -795,3 +794,4 @@ case COLD_ARCHIVE_BOUNDARY_LEAF:
 case COLD_ARCHIVE_HASH:
     ColdArchiveHashEntry hashEntry;
 };
+}
